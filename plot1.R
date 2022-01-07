@@ -36,7 +36,7 @@ endDate <- as.POSIXlt("2007-02-02", tz = "EST")
 # Cast the Global_active_power as numeric (it is imported as factor)
 
 twoDays <- filter(fullData, Date >= startDate & Date <= endDate)
-twoDays <- mutate(twoDays, Global_active_power = as.numeric(Global_active_power))
+twoDays <- mutate(twoDays, Global_active_power = as.numeric(as.character(Global_active_power)))
 
 # Histogram the Global_active_power in a screen device
 # 1st, clear any currently running graphics devices
@@ -48,5 +48,5 @@ hist(twoDays$Global_active_power, col = "red", bg = "white",
      xlab = "Global Active Power (kilowatts)",
      ylab = "Frequency")
 dev.copy(png, file = "plot1.png", height = 480, width = 480, units = "px")
-dev.off()
+dev.off() # writes the file, but leaves the screen device open
 
