@@ -53,10 +53,17 @@ y3Values <- as.numeric(as.character(twoDays$Sub_metering_3))
 while(dev.cur() > 1) { dev.off() }
 
 x11()
-plot(xValues, y1Values, type = "l", col = "black")
-plot(xValues, y2Values, type = "l", col = "red")
-plot(xValues, y3Values, type = "l", col = "blue")
+plot(xValues, y1Values, type = "l", col = "black", bg = "white", 
+     main = "",
+     xlab = "",
+     ylab = "Energy sub metering",
+     xaxp = c(0, 2, 2),
+     xaxt = "n")
+lines(xValues, y2Values, type = "l", col = "red")
+lines(xValues, y3Values, type = "l", col = "blue")
 axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
+legend("topright",lty = c(1, 1, 1), col = c("black", "red", "blue"),
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.copy(png, file = "plot3.png", height = 480, width = 480, units = "px")
 dev.off() # writes the file, but leaves the screen device open
 
