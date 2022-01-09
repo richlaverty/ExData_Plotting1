@@ -58,8 +58,8 @@ grp <- as.numeric(as.character(twoDays$Global_reactive_power))
 # 1st, clear any currently running graphics devices
 while(dev.cur() > 1) { dev.off() }
 
-par(mfrow = c(2, 2))
 x11()
+par(mfrow = c(2, 2))
 plot(xValues, gap, type = "l", col = "black", bg = "white",
      main = "",
      xlab = "",
@@ -78,8 +78,8 @@ plot(xValues, sm1, type = "l", col = "black", bg = "white",
      ylab = "Energy sub metering",
      xaxp = c(0, 2, 2),
      xaxt = "n")
-lines(sm2, y2Values, type = "l", col = "red")
-lines(sm3, y3Values, type = "l", col = "blue")
+lines(xValues, sm2, type = "l", col = "red")
+lines(xValues, sm3, type = "l", col = "blue")
 axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
 legend("topright",lty = c(1, 1, 1), col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
