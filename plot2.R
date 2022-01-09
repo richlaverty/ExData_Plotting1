@@ -55,7 +55,8 @@ plot(xValues, yValues, type = "l", col = "black", bg = "white",
      main = "",
      xlab = "",
      ylab = "Global Active Power (kilowatts)",
-     xaxp = c(0, 2, 2))
+     xaxp = c(0, 2, 2),
+     xaxt = "n")
 axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
 dev.copy(png, file = "plot2.png", height = 480, width = 480, units = "px")
 dev.off() # writes the file, but leaves the screen device open
