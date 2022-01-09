@@ -39,7 +39,7 @@ twoDays <- filter(fullData, Date >= startDate & Date <= endDate)
 twoDays <- mutate(twoDays, Global_active_power = as.numeric(as.character(Global_active_power)))
 twoDays <- mutate(twoDays, DateTime = as.POSIXlt(paste(Date, Time)))
 
-# Scatterplot the Global_active_power as a function of the
+# line plots of the 3 Sub_metering columns as a function of the
 # time, but label the days of the week on the horizontal axis
 
 # the difference between DateTime and startDate will be given in
@@ -62,7 +62,7 @@ plot(xValues, y1Values, type = "l", col = "black", bg = "white",
 lines(xValues, y2Values, type = "l", col = "red")
 lines(xValues, y3Values, type = "l", col = "blue")
 axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
-legend("topright",lty = c(1, 1, 1), col = c("black", "red", "blue"),
+legend("topright",lty = c(1, 1, 1), col = c("black", "red", "blue", cex = 0.9),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.copy(png, file = "plot3.png", height = 480, width = 480, units = "px")
 dev.off() # writes the file, but leaves the screen device open
