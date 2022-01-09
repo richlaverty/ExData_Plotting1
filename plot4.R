@@ -66,12 +66,17 @@ plot(xValues, gap, type = "l", col = "black", bg = "white",
      ylab = "Global Active Power",
      xaxp = c(0, 2, 2), 
      xaxt = "n")
+axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
+
 plot(xValues, v, type = "l", col = "black", bg = "white",
      main = "",
      xlab = "",
      ylab = "Voltage",
      xaxp = c(0, 2, 2), 
      xaxt = "n")
+axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
+mtext("datetime", side = 1, line = 3)
+
 plot(xValues, sm1, type = "l", col = "black", bg = "white", 
      main = "",
      xlab = "",
@@ -83,12 +88,16 @@ lines(xValues, sm3, type = "l", col = "blue")
 axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
 legend("topright",lty = c(1, 1, 1), col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+
 plot(xValues, grp, type = "l", col = "black", bg = "white",
      main = "",
      xlab = "",
      ylab = "Global_reactive_power",
      xaxp = c(0, 2, 2), 
      xaxt = "n")
+axis(side = 1, at = c(0, 1, 2), labels = c("Thu", "Fri", "Sat"))
+mtext("datetime", side = 1, line = 3)
+
 dev.copy(png, file = "plot4.png", height = 480, width = 480, units = "px")
 dev.off() # writes the file, but leaves the screen device open
 
